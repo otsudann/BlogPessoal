@@ -1,12 +1,11 @@
 package com.blog.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * Tema
@@ -23,6 +22,10 @@ public class Tema {
   @Size(min = 3, max = 255)
   private String nome;
   private String descricao;
+
+  @OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
+  @JsonIgnoreProperties("tema")
+  private List<Postagem> postagem;
 
   public long getId() {
     return id;
