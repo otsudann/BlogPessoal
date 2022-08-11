@@ -13,11 +13,14 @@ public class Usuario {
     private long id;
     @NotBlank
     private String nome;
+    @NotBlank
     private String foto;
+    @NotBlank
     private String usuario;
     @NotBlank
     @Size(min = 8)
     private String senha;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
     private List<Postagem> postagem;
 

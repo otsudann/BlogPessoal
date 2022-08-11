@@ -8,7 +8,7 @@ import com.blog.model.Usuario;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-/**
+/*
  * Classe UserDetailsImpl
  *
  * Implementa a interface UserDetails, que descreve o usuário para
@@ -34,7 +34,7 @@ public class UserDetailsImpl implements UserDetails {
     private String password;
     private List<GrantedAuthority> authorities;
 
-    /**
+    /*
      * Método construtor com parâmetros
      *
      * Observe que este método Construtor recebe um objeto Usuario e
@@ -46,13 +46,13 @@ public class UserDetailsImpl implements UserDetails {
         this.password = usuario.getSenha();
     }
 
-    /**
+    /*
      * Método construtor sem parâmetros
      */
 
     public UserDetailsImpl() {	}
 
-    /**
+    /*
      *  Sobrescreve (@Override) o método que retorna as Autorizações
      *  da conta do usuário. Nesta implementação, não há nenhuma autorização
      *  negada
@@ -74,7 +74,7 @@ public class UserDetailsImpl implements UserDetails {
         return userName;
     }
 
-    /**
+    /*
      *  Sobrescreve (@Override) o método que Indica se a conta do usuário
      *  expirou.
      */
@@ -84,7 +84,7 @@ public class UserDetailsImpl implements UserDetails {
         return true;
     }
 
-    /**
+    /*
      *  Sobrescreve (@Override) o método que Indica se o usuário
      *  está bloqueado ou desbloqueado.
      */
@@ -94,7 +94,7 @@ public class UserDetailsImpl implements UserDetails {
         return true;
     }
 
-    /**
+    /*
      *  Sobrescreve (@Override) o método que indica se as
      *  credenciais do usuário (senha) expiraram.
      */
@@ -104,7 +104,7 @@ public class UserDetailsImpl implements UserDetails {
         return true;
     }
 
-    /**
+    /*
      * Sobrescreve (@Override) o método que Indica se o usuário
      *  está habilitado ou desabilitado.
      *  Se mudar para false nenhum usuário conseguirá logar.

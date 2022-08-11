@@ -11,7 +11,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
+/*
  * Classe BasicSecurityConfig
  *
  * Esta classe é responsável por habilitar a segurança básica da aplicação e o login
@@ -29,7 +29,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  *
  */
 
-/**
+/*
  *  A annotation @EnableWebSecurity: habilita a configuração de segurança padrão
  *  do Spring Security na nossa api.
  */
@@ -37,7 +37,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    /**
+    /*
      * A annotation @Autowired insere uma Injeção de Dependência.
      *
      * Como iremos utilizar os usuários salvos no nosso Banco de dados,
@@ -50,7 +50,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    /**
+    /*
      *  Sobrescreve (@Override) o primeiro método Configure, que tem a função
      *  de criar uma nova instância da Classe AuthenticationManagerBuilder e
      *  define que o login será efetuado através dos usuários criados no Banco de dados.
@@ -73,7 +73,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        /**
+        /*
          *  O objeto auth registra e cria uma nova instância do objeto userDetailsService
          *  da interface UserDetailsService implementada na Classe UserDetailsServiceImpl
          *  para recuperar os dados dos usuários gravados no Banco de dados.
@@ -88,7 +88,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-    /**
+    /*
      *  A annotation @Bean transforma a instância retornada pelo método como um
      *  objeto gerenciado pelo Spring, desta forma, ele pode ser injetado em qualquer
      *  classe, a qualquer momento que você precisar sem a necessidade de usar a
@@ -103,7 +103,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    /**
+    /*
      *  Sobrescreve (@Override) o segundo método Configure que é responsável por
      *  criar uma instância da Classe HttpSecurity, que permite configurar a
      *  segurança baseada na web para solicitações http específicas (endpoints)
@@ -112,7 +112,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        /**
+        /*
          * antMatchers().permitAll -> Endpoint liberado de autenticação
          *
          * HttpMethod.OPTIONS -> O parâmetro HttpMethod.OPTIONS permite que
