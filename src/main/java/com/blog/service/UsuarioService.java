@@ -55,7 +55,8 @@ public class UsuarioService {
     public Optional<Usuario> cadastrarUsuario(Usuario usuario) {
 
         if (usuarioRepository.findByUsuario(usuario.getUsuario()).isPresent())
-            return Optional.empty();
+            //return Optional.empty();
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Usuário já existe!", null);
 
         /*
          * Se o Usuário não existir no Banco de Dados, a senha será criptografada

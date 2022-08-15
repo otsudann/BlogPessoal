@@ -26,10 +26,23 @@ public class UsuarioController {
         return ResponseEntity.ok(usuarioRepository.findAll());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> getById(@PathVariable Long id) {
+        return usuarioRepository.findById(id)
+                .map(resp -> ResponseEntity.ok(resp))
+                .orElse(ResponseEntity.notFound().build());
+    }
     @GetMapping("/{usuario}")
     public ResponseEntity<Usuario> findByUsuario(@PathVariable String usuario){
         return usuarioRepository.findByUsuario(usuario).map(r -> ResponseEntity.ok(r))
                 .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+    }
+
+    @PostMapping("/logar")
+    public ResponseEntity<UsuarioLogin> login(@RequestBody Optional<UsuarioLogin> usuarioLogin) {
+        return usuarioService.autenticarUsuario(usuarioLogin)
+                .map(resposta -> ResponseEntity.ok(resposta))
+                .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
     }
 
     @PostMapping("/cadastrar")
@@ -41,11 +54,13 @@ public class UsuarioController {
 
     }
 
-    @PostMapping("/logar")
-    public ResponseEntity<UsuarioLogin> login(@RequestBody Optional<UsuarioLogin> usuarioLogin) {
-        return usuarioService.autenticarUsuario(usuarioLogin)
-                .map(resposta -> ResponseEntity.ok(resposta))
-                .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    @PutMapping("/atualizar")
+    public ResponseEntity<Usuario> putUsuario(
+            @Valid @RequestBody Usuario usuario){
+        return usuarioService.atualizarUsuario(usuario)
+                .map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
     }
+
 
 }
