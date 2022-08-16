@@ -1,5 +1,7 @@
 package com.blog.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -16,6 +18,7 @@ public class Usuario {
     @NotBlank
     private String foto;
     @NotBlank
+    @Schema(example = "email@email.com.br")
     private String usuario;
     @NotBlank
     @Size(min = 8)

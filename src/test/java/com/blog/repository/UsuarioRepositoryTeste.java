@@ -30,7 +30,7 @@ public class UsuarioRepositoryTeste {
     }
 
     @Test
-    @DisplayName("Retorna Usuario")
+    @DisplayName("Retorna UM Usuario")
     public void retornaUsuario(){
         Optional<Usuario> usuario = usuarioRepository.findByUsuario(this.emailTest);
         assertTrue(usuario.get().getUsuario().equals(this.emailTest));
