@@ -1,20 +1,27 @@
 import React from 'react';
-import {} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/static/navbar/Navbar';
-import Home from './paginas/Home/Home';
 import Footer from './components/static/footer/Footer';
-import { Grid, Paper } from "@material-ui/core";
+
+import Login from './paginas/Login/Login';
+import Home from './paginas/Home/Home';
 
 import './App.css';
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
-      <Home />
+
+      <Routes>
+        <Route path="/home" element={ <Home /> } />
+        <Route path="/" element={ <Login /> } />
+        <Route path="/login" element={ <Login /> } />
+      </Routes>
+
       <Footer />
-    </>
+    </Router>
   );
 }
 
