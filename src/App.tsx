@@ -1,11 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Navbar from './components/static/navbar/Navbar';
 import Footer from './components/static/footer/Footer';
-
-import Login from './paginas/Login/Login';
 import Home from './paginas/Home/Home';
+import Login from './paginas/Login/Login';
 
 import './App.css';
 

@@ -1,30 +1,40 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
-import { Paper, Link, Box, Typography, TextField, FormControlLabel, Button, Checkbox } from '@mui/material';
-//import "./Home.css"
+import React from 'react';
+import { Grid, Typography, TextField, Button } from '@material-ui/core';
+import Box from '@mui/material/Box'
+import { Link } from 'react-router-dom';
+import './Login.css';
 
-function Login(){
+function Login() {
 
-  return(
-    <Grid container className='bg-home'>
-      <Grid item>
-        <Box display="flex">
-
-          <Box component="form" noValidate sx={{ mt: 1 }}>
-            <Typography component="h1" variant="h5"> Entre </Typography>
-            <TextField margin="normal" required fullWidth id="email" label="Email Address" name="email" />
-            <TextField margin="normal" required fullWidth id="password" label="Password" name="password" type="password" />
-            <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Remember me" />
-            <Link to="/home">
-
-            </Link>
+  return (
+    <Grid container direction='row' justifyContent='center' alignItems='center'>
+      <Grid alignItems='center' xs={6}>
+        <Box paddingX={20}>
+          <form>
+            <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' style={{fontWeight: 'bold'}}>Entrar</Typography>
+            <TextField id='usuario' label='usuário' variant='outlined' name='usuario' margin='normal' fullWidth />
+            <TextField id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password'fullWidth />
+            <Box marginTop={2} textAlign='center'>
+              <Link to='/home' className='text-decorator-none'>
+                <Button type='submit' variant='contained' color='primary'>
+                  Logar
+                </Button>
+              </Link>
+            </Box>
+          </form>
+          <Box display='flex' justifyContent='center' marginTop={2}>
+            <Box marginRight={1}>
+              <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
+            </Box>
+              <Typography variant='subtitle1' gutterBottom align='center' style={{fontWeight: 'bold'}}>Cadastre-se</Typography>
           </Box>
-
-          <Box>
-            <Paper style={background: "url(https://www.remessaonline.com.br/blog/wp-content/uploads/2021/10/visual-studio-code-o-que-e.jpg.optimal.jpg)"} />
-          </Box>
-
         </Box>
+      </Grid>
+      <Grid xs={6} style={{
+        backgroundImage: `url(https://i.imgur.com/d5bMdDJ.jpg)`,
+        backgroundRepeat: 'no-repeat', width: '100vh', minHeight: '100vh', backgroundSize: 'cover', backgroundPosition: 'center'
+      }}>
+
       </Grid>
     </Grid>
   );
