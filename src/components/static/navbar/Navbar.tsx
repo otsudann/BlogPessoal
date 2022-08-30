@@ -6,17 +6,17 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-
 import { Button, Grid, Paper } from "@material-ui/core";
+
 import './Navbar.css'
 
 function Navbar(){
   return ( 
     <>
-      <AppBar position="static">
+      <AppBar position="static" className="bg-menu">
           <Toolbar variant="dense">
               <Box style={{ cursor: "pointer" }} >
-                  <Typography variant="h5" color="inherit">
+                  <Typography variant="h5" color="inherit" className="blog-name">
                       BlogPessoal
                   </Typography>
               </Box>
