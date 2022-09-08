@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { Container, Typography, TextField, Button, Select, InputLabel, MenuItem, FormControl, FormHelperText } from "@material-ui/core"
-import './CadastroPost.css';
+import './CadastroPostagem.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import Tema from '../../../models/Tema';
 import useLocalStorage from 'react-use-localstorage';
@@ -21,11 +21,11 @@ function CadastroPost() {
     }
   }, [token])
 
-  const [tema, setTema] = useState<Tema>(
-    {
-      id: 0,
-      descricao: ''
-    })
+  const [tema, setTema] = useState<Tema>({
+    id: 0,
+    descricao: ''
+  })
+
   const [postagem, setPostagem] = useState<Postagem>({
     id: 0,
     titulo: '',
@@ -96,7 +96,7 @@ function CadastroPost() {
   }
 
   function back() {
-    navigate('/posts')
+    navigate('/postagens')
   }
 
   return (

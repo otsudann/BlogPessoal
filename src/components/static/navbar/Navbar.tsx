@@ -21,7 +21,9 @@ function Navbar(){
 
   return ( 
   <>
-    <AppBar position="static" className="bg-menu navbar">
+    <section className="">
+    </section>
+    /*<AppBar position="static" className="navbar">
       <Toolbar variant="dense">
         <Box style={{ cursor: "pointer" }} >
           <Typography variant="h5" color="inherit" className="blog-name">
@@ -64,7 +66,7 @@ function Navbar(){
           </Box>
         </Box>
         </Toolbar>
-      </AppBar>
+      </AppBar>*/
   </>
  )
 }
