@@ -1,8 +1,11 @@
-.bg-menu {
+.navbar .bg-menu {
   background: linear-gradient(90deg, rgba(138,8,237,1) 35%, rgba(56,36,55,1) 100%);
 }
 
-.blog-name {
+.navbar .blog-name {
   font-size: 14px !important;
 }
 
+.navbar h6 {
+  color: #ffffff !important;
+}

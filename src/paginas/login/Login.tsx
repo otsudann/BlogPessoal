@@ -17,16 +17,12 @@ function Login() {
 
   const [userLogin, setUserLogin] = useState<UserLogin>({
     id: 0,
+    nome: '',
     usuario: '',
     senha: '',
+    foto: '',
     token: '',
   })
-
-  useEffect(() => {
-    if (token !== ""){
-      navigate('/home')
-    }
-  }, [token])
 
   function updatedModel(e: ChangeEvent<HTMLInputElement>) {
     setUserLogin({
@@ -34,6 +30,12 @@ function Login() {
       [e.target.name]: e.target.value
     })               
   }
+
+  useEffect(() => {
+    if (token !== ""){
+      navigate('/home')
+    }
+  }, [token])
 
   async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -43,6 +45,7 @@ function Login() {
       alert("Usuário logado com sucesso")
     } catch (error) {
       alert("Dados do usuário inconsistentes")
+      console.log(`Erro: ${error}`);
     }
   }
 

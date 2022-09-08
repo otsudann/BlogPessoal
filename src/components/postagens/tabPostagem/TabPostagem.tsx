@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { AppBar, Tab, Tabs, Typography } from '@material-ui/core';
 import Box from '@mui/material/Box';
 import { TabContext, TabPanel } from '@material-ui/lab';
-import ListaPostagem from '../listapostagem/ListaPostagem';
+import ListaPostagem from '../listaPostagem/ListaPostagem';
 import './TabPostagem.css';
 
 
@@ -17,7 +17,7 @@ function TabPostagem() {
         <AppBar position="static">
           <Tabs centered indicatorColor="secondary" onChange={handleChange}>
             <Tab label="Todas as postagens" value="1"/>
-            <Tab label="Sobre-nós" value="2" />
+            <Tab label="Sobre nós" value="2" />
           </Tabs>
         </AppBar>
         <TabPanel value="1" >
