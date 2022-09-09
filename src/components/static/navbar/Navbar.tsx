@@ -6,24 +6,30 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {Link, useNavigate} from 'react-router-dom';
 import useLocalStorage from 'react-use-localstorage';
+import {useSelector, useDispatch} from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
+import { addToken } from '../../../store/tokens/actions';
 
 import './Navbar.css'
 
 function Navbar(){
-  const [token, setToken] = useLocalStorage('token');
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
   let navigate = useNavigate();
+  const dispatch = useDispatch();
 
   function goLogout(){
-    setToken('')
+    dispatch(addToken(''))
     alert("Usuario deslogado")
     navigate('/login')
   }
 
-  return ( 
-  <>
-    <section className="">
-    </section>
-    /*<AppBar position="static" className="navbar">
+  var navbarComponent;
+
+  if(token !== ''){
+    navbarComponent = 
+    <AppBar position="static" className="navbar">
       <Toolbar variant="dense">
         <Box style={{ cursor: "pointer" }} >
           <Typography variant="h5" color="inherit" className="blog-name">
@@ -66,7 +72,12 @@ function Navbar(){
           </Box>
         </Box>
         </Toolbar>
-      </AppBar>*/
+      </AppBar>
+  }
+
+  return ( 
+  <>
+    {navbarComponent}
   </>
  )
 }
