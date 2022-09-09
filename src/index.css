@@ -1,13 +1,44 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+:root {
+  /* GruvBox Dark Mode Colors */
+  --greyh: #1d2021;
+  --grey0: #282828;
+  --grey1: #3c3836;
+  --whit0: #fbf1c7;
+  --whit1: #ebdbb2;
+  --whit2: #d5c4a1;
+  --whit3: #bdae93;
+  --whit4: #a89984;
+  --oran0: #d65d0e;
+  --oran1: #fe8019;
+  --yell0: #d79921;
+  --yell1: #fabd2f;
+  --red0: #cc241d;
+  --red1: #fb4934;
+}
+*, 
+*:after,
+*:before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+h1,h2,h3,h4,h5,p {
+  color: var(--whit2);
+}
+
+body {
+  font-family: 'Roboto Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--greyh);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

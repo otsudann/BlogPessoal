@@ -1,11 +1,25 @@
-.navbar .bg-menu {
-  background: linear-gradient(90deg, rgba(138,8,237,1) 35%, rgba(56,36,55,1) 100%);
+.navbar {
+  background: var(--greyh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1% 0;
+}
+.navbar .list {
+  width: 60%;
+}
+.navbar .list ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.navbar .list ul li {
+  
+}
+.navbar .list ul li a {
+  text-decoration: none;
+  color: var(--oran1);
 }
 
-.navbar .blog-name {
-  font-size: 14px !important;
-}
-
-.navbar h6 {
-  color: #ffffff !important;
-}

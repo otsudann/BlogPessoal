@@ -1,0 +1,31 @@
+.footer {
+  background-color: var(--grey0);
+  width: 100%;
+  padding: 1% 0;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .copyright {
+  display: flex;
+  align-items: center;
+  margin: 0 1%;
+}
+.footer .social {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 25%;
+  margin: 0 1%;
+}
+.footer .social p, .footer .copyright p {
+  color: var(--oran1);
+  font-size: 1rem;
+}
+.footer .social a {
+  margin: 0 1%;
+}
+.footer .social svg {
+  width: 3rem;
+  fill: var(--oran1);
+}
