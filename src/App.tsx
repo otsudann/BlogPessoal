@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Navbar from './components/static/navbar/Navbar';
 import Footer from './components/static/footer/Footer';
@@ -13,6 +12,12 @@ import CadastroTema from './components/temas/cadastroTema/CadastroTema';
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
 import {Provider} from 'react-redux';
+
+// Important to toast 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import store from './store/Store';
 
 function App() {
@@ -20,6 +25,8 @@ function App() {
     <Provider store={store}>
     <Router>
       <Navbar />
+      <ToastContainer />
+
       <div style={{ minHeight: '100vh' }}>
         <Routes>
           <Route path="/" element={<Login />} />
