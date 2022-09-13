@@ -7,7 +7,7 @@ import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../models/Postagem';
 import { busca, buscaId, post, put } from '../../../services/Services';
 
-function CadastroPost() {
+function CadastroPostagem() {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [temas, setTemas] = useState<Tema[]>([])
@@ -131,4 +131,4 @@ function CadastroPost() {
     </Container>
   )
 }
-export default CadastroPost;
+export default CadastroPostagem;

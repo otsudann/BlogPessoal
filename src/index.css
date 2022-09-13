@@ -1,8 +1,43 @@
-body {
+:root {
+  /* GruvBox Dark Mode Colors */
+  /* Dark */
+  --bg0_h: #1d2021;
+  --bg0_s: #32302f;
+  --bg0: #282828;
+  --bg1: #3c3836;
+  --bg2: #504945;
+  --bg3: #665c54;
+  --bg4: #7c6f64;
+  /* Light */
+  --fg0: #fbf1c7;
+  --fg1: #ebdbb2;
+  --fg2: #d5c4a1;
+  --fg3: #bdae93;
+  --fg4: #a89984;
+  /* Colors */
+  --red0: #cc241d;
+  --red1: #fb4934;
+  --gre0: #98971a;
+  --gre1: #b8bb26;
+  --yel0: #d79921;
+  --yel1: #fabd2f;
+  --blu0: #458588;
+  --blu1: #83a598;
+  --pur0: #b16286;
+  --pur1: #d3869b;
+  --aqu0: #689d6a;
+  --aqu1: #8ec07c;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+}
+body {
+  background-color: var(--);
+  margin: 0;
+  font-family: monospace;  
+  font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -1,24 +1,28 @@
-import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Navbar from './components/static/navbar/Navbar';
-import Footer from './components/static/footer/Footer';
-import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
-import Home from './paginas/home/Home';
-import Login from './paginas/login/Login';
-import './App.css';
-import ListaTema from './components/temas/listaTema/ListaTema';
-import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem';
-import CadastroPost from './components/postagens/cadastroPostagem/CadastroPostagem';
-import CadastroTema from './components/temas/cadastroTema/CadastroTema';
+// Postagem
+import CadastroPostagem from './components/postagens/cadastroPostagem/CadastroPostagem';
 import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem';
+// Tema
+import CadastroTema from './components/temas/cadastroTema/CadastroTema';
+import ListaTema from './components/temas/listaTema/ListaTema';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
+// Usuario
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
+// Components
+import Footer from './components/static/footer/Footer';
+import Home from './paginas/home/Home';
+import Navbar from './components/static/navbar/Navbar';
+// Pages
+import Login from './paginas/login/Login';
+// React
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import {Provider} from 'react-redux';
-
 // Important to toast 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 import store from './store/Store';
+// CSS
+import './App.css';
 
 function App() {
   return (
@@ -35,8 +39,8 @@ function App() {
           <Route path="/cadastrousuario" element={<CadastroUsuario />} />
           <Route path="/temas" element={<ListaTema />} />
           <Route path="/postagens" element={<ListaPostagem />} />
-          <Route path="/formularioPostagem" element={<CadastroPost />} />
-          <Route path="/formularioPostagem/:id" element={<CadastroPost />} />
+          <Route path="/formularioPostagem" element={<CadastroPostagem />} />
+          <Route path="/formularioPostagem/:id" element={<CadastroPostagem />} />
           <Route path="/formularioTema" element={<CadastroTema />} />
           <Route path="/formularioTema/:id" element={<CadastroTema />} />
           <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
