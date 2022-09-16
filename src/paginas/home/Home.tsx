@@ -8,9 +8,9 @@ import { useNavigate } from 'react-router';
 import { Link } from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import {TokenState} from '../../store/tokens/TokensReducer';
+import {toast} from 'react-toastify';
 
 function Home() {
-
   let navigate = useNavigate();
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
@@ -18,11 +18,20 @@ function Home() {
   
   useEffect(() => {
     if (token == "") {
-      alert("Você precisa estar logado")
+      toast.error('voce precisa logar!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+    })
       navigate("/login")
-  
     }
   }, [token])
+
   return (
     <>
       <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>

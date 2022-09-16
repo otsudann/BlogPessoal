@@ -2,8 +2,9 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import {useDispatch} from 'react-redux';
 
 import { Grid, Typography, TextField, Button } from '@material-ui/core';
-import Box from '@mui/material/Box'
+import Box from '@mui/material/Box';
 import { Link, useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 import { login } from '../../services/Services';
 import UserLogin from '../../models/UserLogin';
@@ -43,10 +44,27 @@ function Login() {
     //console.log('userLogin: ' + Object.values(userLogin));          
     try {
       await login(`/usuarios/logar`, userLogin, setToken)
-      alert("Usuário logado com sucesso")
-    } catch (error) {
-      alert("Dados do usuário inconsistentes")
-      console.log(`Erro: ${error}`);
+      toast.success('Usuário logado com sucesso!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
+    }catch (error) {
+      toast.error('Dados do usuário inconsistentes. Erro ao logar!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     }
   }
 

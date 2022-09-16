@@ -1,21 +1,34 @@
 import React, {useState, useEffect} from 'react';
-import useLocalStorage from 'react-use-localstorage';
 import { Link, useNavigate } from 'react-router-dom'
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import Box from '@mui/material/Box';
 import Tema from '../../../models/Tema';
 import {busca} from '../../../services/Services';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
+import { toast } from 'react-toastify';
 import './ListaTema.css';
 
 function ListaTema() {
-  const [temas, setTemas] = useState<Tema[]>([]);
-  const [token, setToken] = useLocalStorage('token');
+  const [temas, setTemas] = useState<Tema[]>([])
   let navigate = useNavigate();
+  const token = useSelector<TokenState, TokenState["tokens"]>(
+    (state) => state.tokens
+  );
 
-  useEffect(() => {
-    if(token == '') {
-      alert("Voce precisa estar logado")
-      navigate('/login')
+  useEffect(()=>{
+    if(token == ''){
+      toast.error('Você precisa estar logado', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+        });
+      navigate("/login")
     }
   }, [token])
 
@@ -33,7 +46,8 @@ function ListaTema() {
 
   return (
     <>
-    { temas.map(tema => (
+    {
+      temas.map(tema =>(
       <Box m={2} >
         <Card variant="outlined">
           <CardContent>
@@ -41,12 +55,11 @@ function ListaTema() {
               Tema
             </Typography>
             <Typography variant="h5" component="h2">
-              {tema.descricao}
+             {tema.descricao}
             </Typography>
           </CardContent>
           <CardActions>
             <Box display="flex" justifyContent="center" mb={1.5} >
-
               <Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
                 <Box mx={1}>
                   <Button variant="contained" className="marginLeft" size='small' color="primary" >
@@ -65,10 +78,9 @@ function ListaTema() {
           </CardActions>
         </Card>
       </Box>
-    ))}
+      ))
+      }
     </>
   );
 }
-
-
 export default ListaTema;
